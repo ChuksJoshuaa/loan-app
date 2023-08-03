@@ -76,7 +76,7 @@ const RequestForm = () => {
   return (
     <div className="request-form">
       <div className="bg-white shadow-md rounded px-8 pt-2 pb-8 mb-4 flex flex-col my-2">
-        <h1 className="text-center text-xl md:text-2xl text-gray-900 pb-2 font-bold uppercase mt-2">
+        <h1 className="text-center text-xl md:text-2xl text-gray-900 pb-2 font-bold capitalize mt-2">
           Request Loan
         </h1>
         <p className="text-center text-[crimson] text-md mb-5 font-normal">
