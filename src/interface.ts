@@ -14,3 +14,10 @@ export type AppAction =
   | { type: typeof LOADING; payload: boolean }
   | { type: typeof SETSCREEN; payload: number }
   | { type: typeof OPENSIDEBAR; payload: boolean };
+
+export type FormProps = {
+  action: string;
+  full_name: string;
+  loan_amount: string;
+  repayment_duration: string;
+};
