@@ -21,3 +21,16 @@ export type FormProps = {
   loan_amount: string;
   repayment_duration: string;
 };
+
+export interface IIProps {
+  code: number;
+  result: boolean;
+  data: {
+    ID: string;
+    TRANSACTION_ID: string;
+    FULL_NAME: string;
+    LOAN_AMOUNT: string;
+    REPAYMENT_DURATION: string;
+    CREATED_TIME: string;
+  };
+}

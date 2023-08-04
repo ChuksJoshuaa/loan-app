@@ -33,7 +33,7 @@ const RequestForm = () => {
     setFormData(initialState);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (
@@ -48,23 +48,21 @@ const RequestForm = () => {
 
     setIsSubmitting(true);
 
+    const jsonData = new FormData();
+    jsonData.append("action", formData.action);
+    jsonData.append("full_name", formData.full_name);
+    jsonData.append("loan_amount", formData.loan_amount);
+    jsonData.append("repayment_duration", formData.repayment_duration);
+
     try {
-      fetch(BASE_URL, {
+      const response = await fetch(BASE_URL, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          emptyField();
-        })
-        .catch((error) => {
-          console.log(error);
-          setErrors("Sorry, an error occurred");
-        });
+        body: jsonData,
+      });
+
+      const data = await response.json();
+      const resp = JSON.stringify(data);
+      console.log(resp);
     } catch (error) {
       console.log(error);
       setErrors("Sorry, an error occurred");
