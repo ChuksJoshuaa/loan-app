@@ -1,4 +1,10 @@
-import { LOADING, OPENSIDEBAR, SEARCHDATA, SETSCREEN } from "./actionTypes";
+import {
+  ADDLOAN,
+  LOADING,
+  OPENSIDEBAR,
+  SEARCHDATA,
+  SETSCREEN,
+} from "./actionTypes";
 
 export type ChildrenProps = {
   children: React.ReactNode;
@@ -24,15 +30,16 @@ export interface ProviderProps {
   loanData: IIProps[];
 }
 
-export type AppAction =
-  | { type: typeof LOADING; payload: boolean }
-  | { type: typeof SETSCREEN; payload: number }
-  | { type: typeof OPENSIDEBAR; payload: boolean }
-  | { type: typeof SEARCHDATA; payload: IIProps[] };
-
 export type FormProps = {
   action: string;
   full_name: string;
   loan_amount: string;
   repayment_duration: string;
 };
+
+export type AppAction =
+  | { type: typeof LOADING; payload: boolean }
+  | { type: typeof SETSCREEN; payload: number }
+  | { type: typeof OPENSIDEBAR; payload: boolean }
+  | { type: typeof SEARCHDATA; payload: IIProps[] }
+  | { type: typeof ADDLOAN; payload: FormProps };

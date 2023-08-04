@@ -1,9 +1,13 @@
 import { createContext, useReducer, useEffect } from "react";
 import { AppAction, ChildrenProps, ProviderProps } from "../interface";
 import { ContextReducers } from "../reducers";
-import { LOADING, OPENSIDEBAR, SETSCREEN } from "../actionTypes";
+import { LOADING, OPENSIDEBAR, SEARCHDATA, SETSCREEN } from "../actionTypes";
 import { initialState } from "./state";
-import { saveDataLocalStorage } from "../utils/getLocalStorage";
+import {
+  getLocalStorage,
+  saveDataLocalStorage,
+} from "../utils/getLocalStorage";
+import { fetchData } from "../utils/data";
 
 // Create the context
 const MyContext = createContext<{
@@ -34,13 +38,23 @@ export const ContextProvider = ({ children }: ChildrenProps) => {
   };
 
   const onLoad = () => {
-    saveDataLocalStorage(state.loanData);
     setTimeout(() => {
       dispatch({ type: LOADING, payload: false });
     }, 3000);
   };
 
+  const loadData = () => {
+    let value = getLocalStorage().data;
+    if (value && value.length > 0) {
+      dispatch({ type: SEARCHDATA, payload: value });
+    } else {
+      saveDataLocalStorage(fetchData);
+      dispatch({ type: SEARCHDATA, payload: fetchData });
+    }
+  };
+
   useEffect(() => {
+    loadData();
     onLoad();
   }, []);
 

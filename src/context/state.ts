@@ -1,9 +1,8 @@
-import { ProviderProps } from "../interface";
-import { fetchData } from "../utils/data";
+import { IIProps, ProviderProps } from "../interface";
 
 export const initialState: ProviderProps = {
   loading: true,
   screenSize: null,
   isSidebarOpen: false,
-  loanData: fetchData,
+  loanData: [] as IIProps[],
 };

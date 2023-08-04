@@ -1,6 +1,10 @@
 import { FormProps } from "../interface";
-import { useState } from "react";
-import { BASE_URL } from "../utils/api";
+import { useContext, useState } from "react";
+// import { BASE_URL } from "../utils/api";
+import MyContext from "../context";
+import { ADDLOAN } from "../actionTypes";
+import { Toast } from "../utils/Toast";
+import { useNavigate } from "react-router-dom";
 
 const initialState: FormProps = {
   action: "",
@@ -13,6 +17,8 @@ const RequestForm = () => {
   const [formData, setFormData] = useState(initialState);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState("");
+  const { dispatch } = useContext(MyContext);
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
@@ -55,19 +61,24 @@ const RequestForm = () => {
     jsonData.append("repayment_duration", formData.repayment_duration);
 
     try {
-      const response = await fetch(BASE_URL, {
-        method: "POST",
-        body: jsonData,
-      });
+      // const response = await fetch(BASE_URL, {
+      //   method: "POST",
+      //   body: jsonData,
+      // });
 
-      const data = await response.json();
-      const resp = JSON.stringify(data);
-      console.log(resp);
+      // const data = await response.json();
+      // const resp = JSON.stringify(data);
+      // console.log(resp);
+      setTimeout(() => {
+        dispatch({ type: ADDLOAN, payload: formData });
+        setIsSubmitting(false);
+        Toast("Loan request successful");
+        emptyField();
+        navigate("/");
+      }, 200);
     } catch (error) {
       console.log(error);
       setErrors("Sorry, an error occurred");
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
