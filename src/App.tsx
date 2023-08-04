@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import { useContext } from "react";
-import { Navbar } from "./components";
+import { Footer, Navbar } from "./components";
 import { HomeView, RequestLoan } from "./pages";
 import MyContext from "./context";
 import Loader from "./components/Loader";
@@ -16,14 +16,17 @@ function App() {
           <Loader />
         </>
       ) : (
-        <div>
+        <>
           <Navbar />
-          <ToastContainer />
-          <Routes>
-            <Route path="/" element={<HomeView />} />
-            <Route path="/request-loan" element={<RequestLoan />} />
-          </Routes>
-        </div>
+          <div style={{ minHeight: "100vh" }}>
+            <ToastContainer />
+            <Routes>
+              <Route path="/" element={<HomeView />} />
+              <Route path="/request-loan" element={<RequestLoan />} />
+            </Routes>
+          </div>
+          <Footer />
+        </>
       )}
     </>
   );

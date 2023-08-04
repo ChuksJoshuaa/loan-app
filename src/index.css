@@ -117,3 +117,29 @@ p {
   padding-top: 5em;
   font-family: "Rajdhani", sans-serif;
 }
+
+.footer {
+  height: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.footer span {
+  color: #fff;
+}
+
+.footer h5 {
+  color: #fff;
+  margin: 0.1rem;
+  text-transform: none;
+  line-height: 1.25;
+}
+
+@media (min-width: 776px) {
+  .footer {
+    flex-direction: row;
+  }
+}

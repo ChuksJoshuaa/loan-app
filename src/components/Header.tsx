@@ -8,12 +8,12 @@ const Header = () => {
   const { state } = useContext(MyContext);
   return (
     <div
-      className={`flex justify-between items-center mt-5 py-5 ${
+      className={`flex flex-wrap justify-between items-center mt-5 py-5 ${
         !state.isSidebarOpen ? "mx-6" : "mx-1"
       }`}
     >
       <div
-        className={`flex justify-start items-center ${
+        className={`mb-2 flex justify-start items-center ${
           !state.isSidebarOpen ? "ml-[1em]" : "ml-0"
         }`}
       >

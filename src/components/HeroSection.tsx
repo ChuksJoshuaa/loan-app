@@ -23,7 +23,7 @@ const HeroSection = () => {
         {state.loanData?.map((val: IIProps, i: number) => (
           <div
             key={i}
-            className="w-[400px] h-[200px] border-2 border-gray-100 shadow-lg mb-5 p-3"
+            className="w-[400px] h-auto sm:h-[200px] border-2 border-gray-100 shadow-lg mb-5 p-3"
           >
             <h1 className="text-gray-900 font-medium text-xl pb-2">
               Name: {val.data.FULL_NAME}
