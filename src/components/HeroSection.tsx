@@ -2,6 +2,7 @@ import { useContext } from "react";
 import MyContext from "../context";
 import { IIProps } from "../interface";
 import { getDate } from "../utils/getTransactionId";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   const { state } = useContext(MyContext);
@@ -19,7 +20,8 @@ const HeroSection = () => {
         className={`loan-items ${!state.isSidebarOpen ? "ml-[1em]" : "ml-0"}`}
       >
         {state.loanData?.map((val: IIProps, i: number) => (
-          <div
+          <Link
+            to={`/loan-repayment/${val.data.TRANSACTION_ID.slice(0, 22)}`}
             key={i}
             className="w-full  h-auto sm:h-[200px] border-2 border-gray-100 shadow-lg mb-5 p-3"
           >
@@ -39,7 +41,7 @@ const HeroSection = () => {
               <span className="text-gray-900">Date: </span>
               {getDate(val.data.CREATED_TIME)}
             </h6>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
