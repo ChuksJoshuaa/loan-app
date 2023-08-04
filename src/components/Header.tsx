@@ -24,7 +24,7 @@ const Header = () => {
           className="w-[20px] h-[20px] mx-2"
         />
         <h3 className="font-bold text-[14px] md:text-[17px] leading-[20px] text-[#222]">
-          Home
+          All Loan Request
         </h3>
       </div>
       <Link

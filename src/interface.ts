@@ -4,10 +4,24 @@ export type ChildrenProps = {
   children: React.ReactNode;
 };
 
+export interface IIProps {
+  code: number;
+  result: boolean;
+  data: {
+    ID: string;
+    TRANSACTION_ID: string;
+    FULL_NAME: string;
+    LOAN_AMOUNT: string;
+    REPAYMENT_DURATION: string;
+    CREATED_TIME: string;
+  };
+}
+
 export interface ProviderProps {
   loading: boolean;
   screenSize: number | null;
   isSidebarOpen: boolean;
+  loanData: IIProps[];
 }
 
 export type AppAction =
@@ -21,16 +35,3 @@ export type FormProps = {
   loan_amount: string;
   repayment_duration: string;
 };
-
-export interface IIProps {
-  code: number;
-  result: boolean;
-  data: {
-    ID: string;
-    TRANSACTION_ID: string;
-    FULL_NAME: string;
-    LOAN_AMOUNT: string;
-    REPAYMENT_DURATION: string;
-    CREATED_TIME: string;
-  };
-}
