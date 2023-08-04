@@ -46,6 +46,24 @@ a {
   align-items: center;
 }
 
+.loan-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+@media screen and (max-width: 1425px) {
+  .loan-items {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 972px) {
+  .loan-items {
+    grid-template-columns: 1fr;
+  }
+}
+
 p {
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 18px;
