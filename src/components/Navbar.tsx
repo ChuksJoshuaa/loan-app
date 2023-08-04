@@ -1,14 +1,29 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NavProfile } from ".";
 import logoImg from "../assets/logo.png";
 import searchSvg from "../assets/search.svg";
 import toggleSvg from "../assets/toggle.svg";
 import MyContext from "../context";
-import { OPENSIDEBAR } from "../actionTypes";
+import { OPENSIDEBAR, SEARCHDATA } from "../actionTypes";
 import { Link } from "react-router-dom";
+import { getLocalStorage } from "../utils/getLocalStorage";
+import { IIProps } from "../interface";
 
 const Navbar = () => {
   const { state, dispatch } = useContext(MyContext);
+  const [value, setValue] = useState("");
+
+  const handleChange = () => {
+    if (!value) {
+      dispatch({ type: SEARCHDATA, payload: getLocalStorage().data });
+    } else {
+      let searchResult = new RegExp(`${value}`, "gi");
+      const newSearchData = getLocalStorage().data.filter((item: IIProps) =>
+        item.data.FULL_NAME.match(searchResult)
+      );
+      dispatch({ type: SEARCHDATA, payload: newSearchData });
+    }
+  };
 
   const openSidebar = () => dispatch({ type: OPENSIDEBAR, payload: true });
 
@@ -36,6 +51,8 @@ const Navbar = () => {
         >
           <div className="relative">
             <input
+              onKeyUp={handleChange}
+              onChange={(e) => setValue(e.target.value)}
               placeholder="Search loan request"
               className="w-[250px] md:w-[500px] h-[27px] rounded-[4px] bg-white outline-none px-3"
             />

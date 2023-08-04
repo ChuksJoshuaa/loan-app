@@ -3,6 +3,7 @@ import { AppAction, ChildrenProps, ProviderProps } from "../interface";
 import { ContextReducers } from "../reducers";
 import { LOADING, OPENSIDEBAR, SETSCREEN } from "../actionTypes";
 import { initialState } from "./state";
+import { saveDataLocalStorage } from "../utils/getLocalStorage";
 
 // Create the context
 const MyContext = createContext<{
@@ -32,11 +33,16 @@ export const ContextProvider = ({ children }: ChildrenProps) => {
     }
   };
 
-  useEffect(() => {
+  const onLoad = () => {
+    saveDataLocalStorage(state.loanData);
     setTimeout(() => {
       dispatch({ type: LOADING, payload: false });
     }, 3000);
-  });
+  };
+
+  useEffect(() => {
+    onLoad();
+  }, []);
 
   useEffect(() => {
     checkWidth();

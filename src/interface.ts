@@ -1,4 +1,4 @@
-import { LOADING, OPENSIDEBAR, SETSCREEN } from "./actionTypes";
+import { LOADING, OPENSIDEBAR, SEARCHDATA, SETSCREEN } from "./actionTypes";
 
 export type ChildrenProps = {
   children: React.ReactNode;
@@ -27,7 +27,8 @@ export interface ProviderProps {
 export type AppAction =
   | { type: typeof LOADING; payload: boolean }
   | { type: typeof SETSCREEN; payload: number }
-  | { type: typeof OPENSIDEBAR; payload: boolean };
+  | { type: typeof OPENSIDEBAR; payload: boolean }
+  | { type: typeof SEARCHDATA; payload: IIProps[] };
 
 export type FormProps = {
   action: string;

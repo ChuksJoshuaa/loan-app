@@ -6,6 +6,7 @@ import MyContext from "../context";
 
 const Header = () => {
   const { state } = useContext(MyContext);
+
   return (
     <div
       className={`flex flex-wrap justify-between items-center mt-5 py-5 ${
