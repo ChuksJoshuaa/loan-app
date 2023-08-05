@@ -3,17 +3,19 @@ import dashboardSvg from "../assets/dashboard.svg";
 import arrowRightSvg from "../assets/arrowRight.svg";
 import { useContext } from "react";
 import MyContext from "../context";
+import { HeaderProps } from "../interface";
 
-const Header = () => {
+const Header = ({ type }: HeaderProps) => {
   const { state } = useContext(MyContext);
+
   return (
     <div
-      className={`flex justify-between items-center mt-5 py-5 ${
+      className={`flex flex-wrap justify-between items-center mt-5 py-5 ${
         !state.isSidebarOpen ? "mx-6" : "mx-1"
       }`}
     >
       <div
-        className={`flex justify-start items-center ${
+        className={`mb-2 flex justify-start items-center ${
           !state.isSidebarOpen ? "ml-[1em]" : "ml-0"
         }`}
       >
@@ -24,17 +26,28 @@ const Header = () => {
           className="w-[20px] h-[20px] mx-2"
         />
         <h3 className="font-bold text-[14px] md:text-[17px] leading-[20px] text-[#222]">
-          Home
+          {type === "home" ? "All Loan Request" : "Loan"}
         </h3>
       </div>
-      <Link
-        to={`/request-loan`}
-        className="rounded-[6px] bg-[#222] py-[5px] px-[10px] gap-[5px] flex items-center cursor-pointer"
-      >
-        <h3 className="text-white text-[14px] leading-[24px] font-normal">
-          Request Loan
-        </h3>
-      </Link>
+      {type === "home" ? (
+        <Link
+          to="/request-loan"
+          className="rounded-[6px] bg-[#222] py-[5px] px-[10px] gap-[5px] flex items-center cursor-pointer"
+        >
+          <h3 className="text-white text-[14px] leading-[24px] font-normal">
+            Request Loan
+          </h3>
+        </Link>
+      ) : (
+        <Link
+          to="/"
+          className="rounded-[6px] bg-[#222] py-[5px] px-[10px] gap-[5px] flex items-center cursor-pointer"
+        >
+          <h3 className="text-white text-[14px] leading-[24px] font-normal">
+            Go back
+          </h3>
+        </Link>
+      )}
     </div>
   );
 };

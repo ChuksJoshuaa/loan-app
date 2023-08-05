@@ -46,6 +46,24 @@ a {
   align-items: center;
 }
 
+.loan-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+
+@media screen and (max-width: 1425px) {
+  .loan-items {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 972px) {
+  .loan-items {
+    grid-template-columns: 1fr;
+  }
+}
+
 p {
   font-family: "Montserrat Alternates", sans-serif;
   font-size: 18px;
@@ -116,4 +134,29 @@ p {
   margin: 0 auto;
   padding-top: 5em;
   font-family: "Rajdhani", sans-serif;
+}
+
+.footer {
+  height: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.footer span {
+  color: #fff;
+}
+
+.footer h5 {
+  color: #fff;
+  margin: 0.1rem;
+  text-transform: none;
+  line-height: 1.25;
+}
+
+.prevent-copy::selection {
+  background-color: transparent;
+  color: inherit;
 }

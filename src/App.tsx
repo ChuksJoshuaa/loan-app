@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { useContext } from "react";
-import { Navbar } from "./components";
-import { HomeView, RequestLoan } from "./pages";
+import { Footer, Navbar } from "./components";
+import { HomeView, RequestLoan, SingleView } from "./pages";
 import MyContext from "./context";
 import Loader from "./components/Loader";
 import { ToastContainer } from "react-toastify";
@@ -16,14 +16,18 @@ function App() {
           <Loader />
         </>
       ) : (
-        <div>
+        <>
           <Navbar />
-          <ToastContainer />
-          <Routes>
-            <Route path="/" element={<HomeView />} />
-            <Route path="/request-loan" element={<RequestLoan />} />
-          </Routes>
-        </div>
+          <div style={{ minHeight: "100vh" }}>
+            <ToastContainer />
+            <Routes>
+              <Route path="/" element={<HomeView />} />
+              <Route path="/request-loan" element={<RequestLoan />} />
+              <Route path="/loan-repayment/:id" element={<SingleView />} />
+            </Routes>
+          </div>
+          <Footer />
+        </>
       )}
     </>
   );
