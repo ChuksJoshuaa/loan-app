@@ -52,3 +52,45 @@ export function getCurrentDateTime() {
 
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
+
+export function formatCurrency(i: string) {
+  let val = Number(i);
+  return new Intl.NumberFormat().format(val);
+}
+
+export const calculateCumulativeRepayment = (
+  loanAmount: string,
+  interest: number,
+  month: string
+) => {
+  const interestRate = interest / 100;
+  const numberOfMonths = Number(month);
+  let totalRepayment = Number(loanAmount);
+
+  for (let i = 0; i < numberOfMonths; i++) {
+    const monthlyInterest = totalRepayment * interestRate;
+    totalRepayment += monthlyInterest;
+  }
+
+  return `₦${formatCurrency(totalRepayment.toString())}`;
+};
+
+export const convertTransactionID = (val: string) => {
+  if (val) return val.slice(0, 22);
+};
+
+const generateUniqueDeviceString = () => {
+  if (window.crypto && window.crypto.getRandomValues) {
+    const array = new Uint32Array(1);
+    window.crypto.getRandomValues(array);
+    return array[0].toString();
+  } else {
+    return Math.random().toString();
+  }
+};
+
+export const getUniqueDeviceString = () => {
+  const deviceInfo = window.navigator.platform;
+  if (deviceInfo) return deviceInfo;
+  else return generateUniqueDeviceString();
+};

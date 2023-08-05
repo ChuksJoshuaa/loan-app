@@ -3,8 +3,9 @@ import dashboardSvg from "../assets/dashboard.svg";
 import arrowRightSvg from "../assets/arrowRight.svg";
 import { useContext } from "react";
 import MyContext from "../context";
+import { HeaderProps } from "../interface";
 
-const Header = () => {
+const Header = ({ type }: HeaderProps) => {
   const { state } = useContext(MyContext);
 
   return (
@@ -25,17 +26,28 @@ const Header = () => {
           className="w-[20px] h-[20px] mx-2"
         />
         <h3 className="font-bold text-[14px] md:text-[17px] leading-[20px] text-[#222]">
-          All Loan Request
+          {type === "home" ? "All Loan Request" : "Loan"}
         </h3>
       </div>
-      <Link
-        to={`/request-loan`}
-        className="rounded-[6px] bg-[#222] py-[5px] px-[10px] gap-[5px] flex items-center cursor-pointer"
-      >
-        <h3 className="text-white text-[14px] leading-[24px] font-normal">
-          Request Loan
-        </h3>
-      </Link>
+      {type === "home" ? (
+        <Link
+          to="/request-loan"
+          className="rounded-[6px] bg-[#222] py-[5px] px-[10px] gap-[5px] flex items-center cursor-pointer"
+        >
+          <h3 className="text-white text-[14px] leading-[24px] font-normal">
+            Request Loan
+          </h3>
+        </Link>
+      ) : (
+        <Link
+          to="/"
+          className="rounded-[6px] bg-[#222] py-[5px] px-[10px] gap-[5px] flex items-center cursor-pointer"
+        >
+          <h3 className="text-white text-[14px] leading-[24px] font-normal">
+            Go back
+          </h3>
+        </Link>
+      )}
     </div>
   );
 };

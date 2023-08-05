@@ -10,6 +10,13 @@ export type ChildrenProps = {
   children: React.ReactNode;
 };
 
+export interface HeaderProps {
+  type: string;
+}
+
+export type LoanProps = {
+  id?: string;
+};
 export interface IIProps {
   code: number;
   result: boolean;

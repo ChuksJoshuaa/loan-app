@@ -161,3 +161,8 @@ p {
     flex-direction: row;
   }
 }
+
+.prevent-copy::selection {
+  background-color: transparent;
+  color: inherit;
+}

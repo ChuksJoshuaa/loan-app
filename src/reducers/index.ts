@@ -37,7 +37,7 @@ export const ContextReducers = (state: ProviderProps, action: AppAction) => {
       },
     };
 
-    const newData = [...state.loanData, objValue];
+    const newData = [objValue, ...state.loanData];
     saveDataLocalStorage(newData);
     return { ...state, loanData: newData };
   }

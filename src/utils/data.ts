@@ -2,7 +2,7 @@ import { generateTransactionId, uniqueId } from "./getTransactionId";
 
 export const fetchData = [
   {
-    code: 103,
+    code: 100,
     result: true,
     data: {
       ID: "8",
@@ -14,7 +14,7 @@ export const fetchData = [
     },
   },
   {
-    code: 103,
+    code: 101,
     result: true,
     data: {
       ID: "7",
@@ -26,7 +26,7 @@ export const fetchData = [
     },
   },
   {
-    code: 103,
+    code: 102,
     result: true,
     data: {
       ID: "6",
