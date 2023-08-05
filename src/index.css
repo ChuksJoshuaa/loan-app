@@ -139,7 +139,7 @@ p {
 .footer {
   height: 5rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -154,12 +154,6 @@ p {
   margin: 0.1rem;
   text-transform: none;
   line-height: 1.25;
-}
-
-@media (min-width: 776px) {
-  .footer {
-    flex-direction: row;
-  }
 }
 
 .prevent-copy::selection {

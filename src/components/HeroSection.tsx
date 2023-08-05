@@ -29,13 +29,13 @@ const HeroSection = () => {
             key={i}
             className="w-full  h-auto sm:h-[200px] border-2 border-gray-100 shadow-lg mb-5 p-3"
           >
-            <h1 className="text-blue-700 font-medium text-xl pb-2 uppercase">
+            <h1 className="text-blue-700 font-bold text-md sm:text-lg pb-2 uppercase">
               Name: {val.data.FULL_NAME}
             </h1>
-            <h2 className="text-gray-900 font-normal text-lg pb-2">
+            <h2 className="text-gray-900 font-normal text-md sm:text-lg pb-2">
               Loan Amount: ₦{formatCurrency(val.data.LOAN_AMOUNT)}
             </h2>
-            <h3 className="text-gray-900 font-normal text-lg pb-2">
+            <h3 className="text-gray-900 font-normal text-md sm:text-lg pb-2">
               Repayment Duration: {val.data.REPAYMENT_DURATION}
             </h3>
             <h6 className="text-gray-900 font-normal text-md pb-2 prevent-copy">
