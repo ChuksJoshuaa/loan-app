@@ -30,10 +30,9 @@ const Navbar = () => {
   return (
     <div className="w-full h-[55px] relative bg-[#222]">
       <div
-        className={`flex flex-row ${
+        className={`main-container flex flex-row ${
           !state.isSidebarOpen ? "justify-start" : "justify-between"
         } items-center`}
-        style={{ maxWidth: "1700px", margin: "0 auto", width: "90%" }}
       >
         <Link to="/" className="w-72 h-[55px]">
           <img

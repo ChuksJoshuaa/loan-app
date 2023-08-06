@@ -2,7 +2,7 @@ import { RequestForm } from "../components";
 
 const Request = () => {
   return (
-    <div style={{ maxWidth: "1700px", margin: "0 auto", width: "90%" }}>
+    <div className="main-container">
       <RequestForm />
     </div>
   );

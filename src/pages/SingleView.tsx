@@ -32,7 +32,7 @@ const SingleView = () => {
   }, [id]);
 
   return (
-    <div style={{ maxWidth: "1700px", margin: "0 auto", width: "90%" }}>
+    <div className="main-container">
       <Header type="loan" />
       <LoanSchedule id={id} />
     </div>

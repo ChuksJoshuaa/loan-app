@@ -36,6 +36,12 @@ a {
   width: 4px;
 }
 
+.main-container {
+  max-width: 1700px;
+  margin: 0 auto;
+  width: 90%;
+}
+
 .loader-container {
   background: #000 !important;
   color: #fff;
