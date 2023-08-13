@@ -1,4 +1,4 @@
-# Frontend Technical Task
+# Loan Application
 
 <img src="https://res.cloudinary.com/chuksmbanaso/image/upload/v1691232401/Screenshot_2023-08-05_at_11.43.13_gbzmke.png" title="Image" alt="image">
 <img src="https://res.cloudinary.com/chuksmbanaso/image/upload/v1691232406/Screenshot_2023-08-05_at_11.43.51_wapeyp.png" title="Image" alt="image">
